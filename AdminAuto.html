@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name = "viewport" content= "width = device-width, initial-scale = 1, maximum-scale= 1">
+	<link rel="icon" href="assets/img/pony.png">
+	<title>Administrar auto</title>
+    <!-- jQuery -->
+    <script src="jquery/jquery-3.2.0.min.js"></script>
+    <!-- Materialize CSS -->
+	<link href="materialize/css/materialize.min.css" rel="stylesheet">
+    <script src="materialize/js/materialize.min.js"></script>
+
+     <!-- Push.js -->
+    <script src="node_modules/push.js/bin/push.min.js"></script>
+     <!-- Material Design Iconic Font CSS -->
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tipo de fuente -->
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <!-- Grupo de iconos -->
+    <link href="materialize/css/material_icons.css" rel="stylesheet">
+    <script src="js/auto.js"></script>
+    <!-- Extra JS -->
+    <script src="js/main.js"></script>
+	<script>
+        validarLogin("login")
+    </script>
+
+
+</head>
+<body class="font-cover" id="login">
+    <nav class="red darken-4">
+       <ul class="dropdown-content" id="opciones">
+            <li><a href="edit_usuario.html"><i class="material-icons left">person</i><span class="nombreUsuario">Jorge</span></a></li>
+            <li><a href="AdminRutas.html"><i class="material-icons">timeline</i>Rutas</a></li>
+            <li><a href="AdminAuto.html"><i class="material-icons">directions_car</i>Vehículos</a></li>
+            <li><a href="about/about.html"><i class="material-icons">info</i>Acerca De</a></li>
+            <li><a class="btnLogout"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
+       </ul>
+       <ul class="dropdown-content" id="notificaciones">
+           <li><a href="#" disabled>No hay notificaciones</a></li>
+       </ul>
+       <ul class="dropdown-content" id="notificaciones2">
+           <li><a href="#" disabled>No hay notificaciones</a></li>
+       </ul>
+
+
+        <div class="nav-wrapper">
+            <a href="#" data-activates="menu-lateral" class="button-collapse white-text"><i class="material-icons">menu</i></a>
+            <a href="index.html" class="brand-logo center tit">Pony Ride</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="buscar_viaje.html"><i class="material-icons left">search</i>Buscar</a></li>
+                <li><a href="publicar_viaje.html"><i class="material-icons left">send</i>Publicar</a></li>
+                <li><a href="#" class="dropdown-button notificaciones" data-activates="notificaciones">
+                    <i class="material-icons left">notifications</i><span class="badgeNotificaciones new badge amber accent-4" data-badge-caption="0"></span></a></li>
+                <li><a href="#" class="dropdown-button" data-activates="opciones"><i class="material-icons">more_vert</i></a></li>
+            </ul>
+            <ul id="menu-lateral" class="side-nav">
+                <li><div class="user-view">
+                  <div class="background" style="background: linear-gradient( 90deg, gold, maroon); ">
+                  </div>
+                  <div style="
+                  width: 50%;  display: inline-block;">
+                      <a href="edit_usuario.html"><img class="circle" src="assets/img/user.png"></a>
+                      <span class="black-text name"></span>
+                  </div>
+                  <img id="ponynav" src="assets/img/pony.png" style="
+                  width: 45%; display: inline-block; ">
+                </div></li>
+                <li><a href="#" class="dropdown-button notificaciones" data-activates="notificaciones2"><i class="material-icons">notifications</i>Notificaciones<span class="badgeNotificaciones new badge red accent-4" data-badge-caption=""></span></a></li>
+                <li><a href="buscar_viaje.html"><i class="material-icons">search</i>Buscar Viaje</a></li>
+                <li><a href="publicar_viaje.html"><i class="material-icons">send</i>Publicar Viaje</a></li>
+                <li><a href="AdminRutas.html"><i class="material-icons">timeline</i>Rutas</a></li>
+                <li><a href="AdminAuto.html"><i class="material-icons">directions_car</i>Vehiculos</a></li>
+                <li><a href="about/about.html"><i class="material-icons">info</i>Acerca de</a></li>
+                <li><a href="" class="btnLogout"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-login center-align">
+        <form action="">
+            <h3 style="color: maroon">Datos del Auto</h3>
+            <a class="waves-effect red btn red darken-4" id="antauto">Anterior</a>
+            <a class="waves-effect red btn red darken-4" id="sigauto">Siguiente</a>
+            <div id="datos">
+                
+            </div>
+            <a id="agregar" href="NuevoAuto.html" class="btn-floating btn-large waves-effect waves-light red darken-4"><i class="material-icons">add</i></a>
+        </form>
+        <br>
+        <br>
+        
+    </div>
+    <div class="modal" id="solicitudViaje">
+        <div class="modal-content">
+            <h4>Solicitud de Viaje</h4>
+            <div class="row">
+                <div class="col s4">
+                    <img src="assets/img/user.png" alt="" class="perfilUsuario">
+                </div>
+                <div class="col s8">
+                    <span class="nombreUsuario"></span><span> ha solicitado viajar contigo</span>
+                    <p class="numeroControl"></p>
+                    <img src="" alt="" class="logoCarrera">
+                    <p>propone este punto de encuentro:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div id="pickUp"></div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 center-align">
+                    <a href="#" class="btn amber accent-4 btnConfirmar"><i class="material-icons left">check_circle</i>Confirmar</a>
+                </div>
+                <div class="input-field col s6 center-align">
+                    <a href="#" class="btn amber accent-4 btnRechazar"><i class="material-icons left">cancel</i>Rechazar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="datosContacto">
+        <div class="modal-content">
+            <h4>Viaje Confirmado</h4>
+            <div class="row">
+                <div class="col s4">
+                    <img src="assets/img/user.png" alt="" class="perfilUsuario">
+                </div>
+                <div class="col s8">
+                    <span class="nombreUsuario"></span><span> confirmó tu viaje</span>
+                    <p>
+                        <i class="material-icons">contact_phone</i><span class="numerotel"></span>
+                    </p><p>
+                        <i class="material-icons">access_time</i><span class="salida"></span>
+                    </p>     
+                </div>
+            </div>
+            <div class="row">
+                <div id="rutaViaje"></div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 right-align">
+                    <a href="#" class="btn amber accent-4 modal-action modal-close">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name = "viewport" content= "width = device-width, initial-scale = 1, maximum-scale= 1">
+	<link rel="icon" href="assets/img/pony.png">
+	<title>Login</title>
+    <!-- jQuery -->
+    <script src="jquery/jquery-3.2.0.min.js"></script>
+    <!-- Materialize CSS -->
+   <link rel="stylesheet" href="css/materialize.css">
+   <script src="materialize/js/materialize.min.js"></script>
+   <!-- Push.js -->
+    <script src="node_modules/push.js/bin/push.min.js"></script>
+    <!-- Material Design Iconic Font CSS -->
+   <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+   <!-- Estilos lulu o-->
+   <link rel="stylesheet" href="css/estiloRegUs.css">
+   <!-- Extras CSS -->
+   <link rel="stylesheet" href="css/style.css">
+ 
+   <!-- Tipo de fuente -->
+   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+   <link href="https://fonts.googleapis.com/css?family=Anton|Passion+One" rel="stylesheet">
+    <!-- AJAX para el login -->
+    <script src="js/ajax_login.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        validarLogin("nologin")
+    </script>
+</head>
+
+<body class="font-cover" id="login">
+
+    <div class="container-login center-align">
+        <div id="titulo_logo">
+            <div>
+                <img src="assets/img/pony.png">
+                <div class="tit">Pony <br> Ride</div>
+            </div>
+        </div>
+        <form method="post" id="form-login">
+            <div class="row">
+                <div id="titulo">
+                    <h2 class="encabezados">Inicia Sesión</h2>
+                </div>
+                <div class="input-field col s12">
+                    <input id="numeroControl" name="numeroControl" type="text">
+                    <label for="numeroControl"><i class="zmdi zmdi-account"></i>&nbsp; Número de Control</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password">
+                    <label for="password"><i class="zmdi zmdi-lock"></i>&nbsp; Contraseña</label>
+                </div>
+            </div>
+            <button type="submit" class="waves-effect waves-red btn red darken-4">Ingresar</button>
+            <div class="divider" style="margin: 20px 0;"></div>
+            <a class="waves-effect waves-red btn red darken-4" href="registro_Usuario.html">Registrar &nbsp; </a>
+        </form>
+        
+    </div>
+    
+    <!-- Extra JS -->
+    <script src="js/main.js"></script>
+    <div class="modal" id="solicitudViaje">
+        <div class="modal-content">
+            <h4>Solicitud de Viaje</h4>
+            <div class="row">
+                <div class="col s4">
+                    <img src="assets/img/user.png" alt="" class="perfilUsuario">
+                </div>
+                <div class="col s8">
+                    <span class="nombreUsuario"></span><span> ha solicitado viajar contigo</span>
+                    <p class="numeroControl"></p>
+                    <img src="" alt="" class="logoCarrera">
+                    <p>propone este punto de encuentro:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div id="pickUp"></div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 center-align">
+                    <a href="#" class="btn amber accent-4 btnConfirmar"><i class="material-icons left">check_circle</i>Confirmar</a>
+                </div>
+                <div class="input-field col s6 center-align">
+                    <a href="#" class="btn amber accent-4 btnRechazar"><i class="material-icons left">cancel</i>Rechazar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="datosContacto">
+        <div class="modal-content">
+            <h4>Viaje Confirmado</h4>
+            <div class="row">
+                <div class="col s4">
+                    <img src="assets/img/user.png" alt="" class="perfilUsuario">
+                </div>
+                <div class="col s8">
+                    <span class="nombreUsuario"></span><span> confirmó tu viaje</span>
+                    <p>
+                        <i class="material-icons">contact_phone</i><span class="numerotel"></span>
+                    </p><p>
+                        <i class="material-icons">access_time</i><span class="salida"></span>
+                    </p>     
+                </div>
+            </div>
+            <div class="row">
+                <div id="rutaViaje"></div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 right-align">
+                    <a href="#" class="btn amber accent-4 modal-action modal-close">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

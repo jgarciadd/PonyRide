@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name = "viewport" content= "width = device-width, initial-scale = 1, maximum-scale= 1">
+    <link rel="icon" href="assets/img/pony.png">
+	<title>Registro de Usuarios</title>
+	<link rel="stylesheet" href="css/estiloRegUs.css">
+     <!-- jQuery -->
+    <script src="jquery/jquery-3.2.0.min.js"></script>
+    
+     <!-- Materialize CSS -->
+	<link rel="stylesheet" href="css/materialize.css">
+     <!-- Materialize JS -->
+	<script src="js/materialize.min.js"></script>
+    <!-- Push.js -->
+    <script src="node_modules/push.js/bin/push.min.js"></script>
+     <!-- Material Design Iconic Font CSS -->
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+    
+    <!-- Grupo de iconos -->
+    <link href="materialize/css/material_icons.css" rel="stylesheet">
+
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tipo de fuente -->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Passion+One" rel="stylesheet">
+
+    <!-- AJAX para el registro -->
+    <script src="js/ajax_registro.js"></script>
+    <!-- Extra JS -->
+	<script src="js/main.js"></script>
+    <script>
+        validarLogin("nologin")
+    </script>
+</head>
+
+<body class="font-cover center-align" id="login">
+   <nav class="red darken-4">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo center tit">Registro Usuario</a>
+        </div>
+    </nav>
+    <div class="container-regUsuario">
+        <p style=" font-weight: bold; font-size:1.5em">Datos de Usuario</p>
+        <form action="#" method="post" id="form-registroUsuario">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="nombreCompleto" type="text" class="validate" required pattern="[a-zA-Z\s]{4,40}" placeholder="Ej. Jorge Garcia Delgado">
+                    <label for="nombreCompleto"><i class="material-icons">account_circle</i>&nbsp; Nombre</label>
+                </div>
+            </div>
+             <div class="row">
+                <div class="input-field col s6">
+                        <select id="iconselect" class="icons" name="carrera">
+                          <option value="" disabled selected>Elige una opción</option>
+                          <option value="" data-icon="assets/logosCarreras/isc.png" class="left circle">ISC</option>
+                          <option value="" data-icon="assets/logosCarreras/info.png" class="left circle">INFO</option>
+                          <option value="" data-icon="assets/logosCarreras/itics.png" class="left circle">ITICS</option>
+                          <option value="" data-icon="assets/logosCarreras/ibq.png" class="left circle">IBQ</option>
+                          <option value="" data-icon="assets/logosCarreras/electrica.png" class="left circle">IE</option>
+                          <option value="" data-icon="assets/logosCarreras/electronica.png" class="left circle">IEA</option>
+                          <option value="" data-icon="assets/logosCarreras/imat.jpeg" class="left circle">IMAT</option>
+                          <option value="" data-icon="assets/logosCarreras/ige.jpeg" class="left circle">IGE</option>
+                          <option value="" data-icon="assets/logosCarreras/mecanica.png" class="left circle">IMEC</option>
+                          <option value="" data-icon="assets/logosCarreras/industrial.png" class="left circle">II</option>
+                          <option value="" data-icon="assets/logosCarreras/imt.png" class="left circle">IMTC</option>
+                          <option value="" data-icon="assets/logosCarreras/admi.jpg" class="left circle">ADMI</option>
+                          <option value="" data-icon="assets/logosCarreras/pony.png" class="left circle">CP</option>
+                        </select>
+                         <label for="carrera"><i class="material-icons">school</i>&nbsp; Carrera</label>
+                </div>
+                <div class="input-field col s6">
+                     <img id="carrera_actual" src="assets/logosCarreras/pony.png" width="48">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="numeroControl" type="text" class="validate" required pattern="[0-9]{8}" placeholder="Ej. 14121462">
+                    <label for="numeroControl"><i class="material-icons">apps</i>&nbsp; No. de Control</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="telefono" type="text" class="validate" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Ej. 443-322-1100">
+                    <label for="telefono"><i class="material-icons">call</i>&nbsp; Teléfono</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="password" type="password" class="validate" required>
+                    <label for="password"><i class="zmdi zmdi-lock"></i>&nbsp; Contraseña</label>
+                </div>
+            </div>
+             <div class="row">
+                 <button id="btnRegistroAuto" class="botones waves-effect waves-red btn red darken-4"><i class="material-icons">drive_eta</i>&nbsp;TENGO UN  CARRO &nbsp; </button>
+             </div>
+            <div class="row">
+                <button type="submit" class="botones waves-effect waves-red btn red darken-4" href="index.html"><i class="material-icons">send</i>&nbsp;TERMINAR REGISTRO &nbsp; </button>
+            </div>
+            <div class="row">
+                <a class="botones waves-effect waves-red btn red darken-4" href="index.html"><i class="material-icons">clear</i>&nbsp;Regresar &nbsp; </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
